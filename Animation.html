@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<title>Sound Bars Up Down Animation</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"> -->
+	<link rel="stylesheet" href="Animation.css">
+	
+</head>
+<body>
+
+<div class="container">
+	<div class="bars bars--paused">
+		<div class="bar" id="bar1"></div>
+		<div class="bar" id="bar2"></div>
+		<div class="bar" id="bar3"></div>
+		<div class="bar" id="bar4"></div>
+		<div class="bar" id="bar5"></div>
+	</div>
+</div>
+<script>
+
+	const bars = document.querySelectorAll(".bar");
+	let intervalValue = 0;
+	
+	const delay = time => new Promise(resolve => setTimeout(resolve, time));
+	
+	[...bars].map((bar) => {
+		delay(0).then(() => {
+			setTimeout(() => {
+				bar.style.animation = "sound 500ms linear infinite alternate"
+			}, intervalValue += 350)
+		})
+	})
+</script>
+
+</body>
+</html>
